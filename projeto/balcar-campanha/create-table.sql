@@ -7,6 +7,8 @@ tbtabelacampo,
 tbreservatorio
 CASCADE;
 
+CREATE EXTENSION IF NOT EXISTS postgis;
+
 CREATE TABLE tbreservatorio (
   idreservatorio INTEGER,
   nome VARCHAR(30) NULL,
