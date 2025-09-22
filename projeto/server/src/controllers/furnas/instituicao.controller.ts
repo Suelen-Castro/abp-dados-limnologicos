@@ -47,3 +47,43 @@ export const getAll = async (req: Request, res: Response): Promise<void> => {
     });
   }
 };
+
+export const getById = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { id } = req.params;
+
+    const result = await furnasPool.query(
+      `
+      SELECT 
+        idinstituicao,
+        nome
+      FROM tbinstituicao
+      WHERE idinstituicao = $1
+      `,
+      [id]
+    );
+
+    if (result.rows.length === 0) {
+      res.status(404).json({
+        success: false,
+        message: `Instituição com ID ${id} não encontrada.`,
+      });
+      return;
+    }
+
+    res.status(200).json({
+      success: true,
+      data: result.rows[0],
+    });
+  } catch (error: any) {
+    logger.error("Erro ao consultar tbinstituicao por ID", {
+      message: error.message,
+      stack: error.stack,
+    });
+
+    res.status(500).json({
+      success: false,
+      error: "Erro ao realizar a operação.",
+    });
+  }
+};
