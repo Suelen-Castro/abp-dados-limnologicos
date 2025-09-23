@@ -75,3 +75,29 @@ export const getAll = async (req: Request, res: Response): Promise<void> => {
     });
   }
 };
+
+export const getById = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { idsimaoffline } = req.params;
+
+    const result = await simaPool.query(
+      `
+      SELECT *
+      FROM tbsimaoffline
+        WHERE idsimaoffline = $1
+      `, [idsimaoffline],
+    );
+
+    if (result.rows.length === 0) {
+      res.status(404).json({ sucess: false, error: "Registro não encontrado.", });
+      return;
+    }
+
+    res.status(200).json({ sucess: true, data: result.rows[0], });
+
+  } catch(error:any){
+    logger.error(`Erro ao consultar registro por ID na tabela tbsimaoffline: ${req.params.idsimaoffline}`, {messsage: error.message, stack: error.stack,});
+
+    res.status(500).json({ sucess: false, error: "Erro ao realizar a operação.", });
+  }
+};

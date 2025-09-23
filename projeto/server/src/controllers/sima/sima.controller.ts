@@ -81,3 +81,30 @@ export const getAll = async (req: Request, res: Response): Promise<void> => {
     });
   }
 };
+
+export const getById = async (req: Request, res: Response): Promise<void> => {
+  try{
+    const {idsima} = req.params;
+
+    const result = await simaPool.query(
+      `
+      SELECT *
+      FROM tbsima
+        WHERE idsima = $1
+      `, [idsima],
+    );
+
+    if(result.rows.length === 0){
+      res.status(404).json({sucess: false, error: "Registro não encontrado.",});
+      return;
+    }
+
+    res.status(200).json({sucess: true, data: result.rows[0],});
+
+  } catch(error:any){
+    logger.error(`Erro ao consultar registro por ID na tabela tbsima: ${req.params.idsima}`,{
+      message: error.message, stack: error.stack,});
+
+      res.status(500).json({sucess: false, error: "Erro ao relizar operação.",});
+  }
+};
