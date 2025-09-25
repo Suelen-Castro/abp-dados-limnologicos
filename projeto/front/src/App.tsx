@@ -5,6 +5,7 @@ import GlobalStyle from "./styles/GlobalStyle";
 import SimaPage from "./pages/SimaPage";
 import BarraBrasil from "./components/BarraBrasil";
 import MenuBar from "./components/MenuBar";
+import BalcarPage from "./pages/BalcarPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <div className="flex-1 w-full">
             <Routes>
               <Route path="/sima" element={<SimaPage />} />
+              <Route path="/balcar" element={<BalcarPage />} />
             </Routes>
           </div>
         </Router>
