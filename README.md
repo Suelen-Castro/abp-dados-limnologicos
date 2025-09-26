@@ -52,6 +52,34 @@ A aplicação permite integrar e apresentar ambos os tipos de dados, facilitando
 
 ---
 
+## 📋 Product Backlog
+
+O **Product Backlog** está listado abaixo de forma resumida.  
+Para a versão **detalhada**, com todas as User Stories e critérios de aceite completos, acesse: [/docs/ProductBacklog.pdf](/docs/ProductBacklog.pdf)
+
+
+| ID   | Épico                            | História (Resumo)                                      | Prioridade |
+|------|----------------------------------|-------------------------------------------------------|------------|
+| US01 | Prototipação & Design            | Prototipar interface no Figma                         | Alta       |
+| US02 | Prototipação & Design            | Definir identidade visual e responsividade            | Alta       |
+| US03 | Front-End                        | Estrutura inicial em React + TypeScript               | Alta       |
+| US04 | Front-End                        | Tela de visualização de dados em tabela (RF02)        | Alta       |
+| US05 | Front-End                        | Exportação de dados em CSV (RF03)                     | Média      |
+| US06 | Front-End                        | Mapa interativo com pontos/polígonos (RF04)           | Alta       |
+| US07 | Front-End                        | Gráficos de séries temporais (RF05)                   | Alta       |
+| US08 | Front-End                        | Usabilidade e desempenho (RNF01, RNF02)               | Alta       |
+| US09 | Front-End                        | Seção “Sobre os Dados” e tooltips                     | Média      |
+| US10 | Back-End                         | Estrutura inicial do servidor Node.js + TypeScript    | Alta       |
+| US11 | Back-End                         | Endpoints de leitura de entidades                     | Alta       |
+| US12 | Back-End                         | Endpoint de exportação CSV                            | Média      |
+| US13 | Back-End                         | Endpoint para séries temporais                        | Alta       |
+| US14 | Deploy & Infraestrutura          | Containerização com Docker                            | Alta       |
+| US15 | Servidor de Ingestão de Dados    | Conexão com PostgreSQL/PostGIS e modelagem de tabelas | Alta       |
+| US16 | Servidor de Ingestão de Dados    | Upload e validação de arquivos CSV                    | Alta       |
+| US17 | Servidor de Ingestão de Dados    | Validação e relatórios de inconsistências             | Alta       |
+| US18 | Servidor de Ingestão de Dados    | Ingestão automática agendada                          | Alta       |
+
+---
 ## 🚀 Sprint 1
 
 ### 🎯 Objetivo
@@ -61,30 +89,20 @@ Estruturar a base do projeto e iniciar a configuração do ambiente de desenvolv
 16/09/2025 a 06/10/2025
 
 ### 📋 Sprint Backlog
-| Tarefa                                                                 | Responsável | User Story Associado | Story Points (Scrum Poker Planning) | Prioridade | Status       |
-|------------------------------------------------------------------------|-------------|----------------------|--------------|------------|--------------|
-| Montar protótipo da tela inicial da aplicação no Figma                 | Suelen      |    História 1        | 3            | Alta       | Em andamento |
-| Escrever o protótipo da tela inicial em React                          | Suelen      |    História 1         | 5            | Alta       | Em andamento |
-| Definir paleta de cores e tipografia alinhada ao INPE                  | Suelen      |    História 2        | 2            | Média      | Em andamento |
-| Validar design com a equipe                                            | Suelen      |           História 2           | 2            | Média      | Em andamento |
-| Criar o primeiro protótipo do componente de menu principal, possibilitando ao usuário uma visão geral dos recursos existentes no sistema             | Bruna       |      História 1                 | 5            | Alta       | Em andamento |
-| Escrever o protótipo do menu principal em React                        | Bruna      |    História 1        | 5            | Alta       | Em andamento |
-| Criar o primeiro protótipo do componente de tabela interativa          | Bruno       |      História 1                | 5            | Alta       | Em andamento |
-| Implementar filtros por instituição, reservatório e período            | Bruno       |         História 1             | 3            | Alta       | Em andamento |
-| Conectar tabela a dados mockados inicialmente (JSON fake)              | Bruno       |     História 1                 | 3            | Média      | Em andamento |
-| Configurar o projeto Node.js + TS com Express                                 | Nicolas     |         História 10             | 3            | Alta       | Em andamento |
-| Configurar scripts dev, build, start no package.json                   | Nicolas     |           História 10           | 2            | Média      | Em andamento |
-| Criar estrutura MVC (controllers, services, routes, middlewares)       | Nicolas     |        História 10              | 5            | Alta       | Em andamento |
-| Implementar middleware de erros e logs básicos                         | Nicolas     |        História 10              | 3            | Média      | Em andamento |
-| Criar endpoint /health para checagem inicial                           | Nicolas     |         História 10             | 2            | Média      | Em andamento |
-| Criar rotas para metade das tabelas existentes (getAll, getById)       | Nicolas     |           História 10           | 5            | Alta       | Em andamento |
-| Criar rotas para metade das tabelas existentes (getAll, getById)       | Ryan        |          História 11            | 5            | Alta       | Em andamento |
-| Testar as rotas                                                        | Ryan        |        História 12              | 3            | Alta       | Em andamento |
-| Documentar a API conforme desenvolvimento                              | Ryan        |      História 12                | 3            | Média      | Em andamento |
-| Criar o primeiro banco a partir dos scripts disponibilizados, testar consultas e verificar se a extensão geoespacial está habilitada           | Pedro       |      História 11                | 5            | Alta       | Em andamento |
-| Hospedar o banco na Render para facilitar uso nesse primeiro momento                          | Pedro       |    História 11                  | 3            | Alta       | Em andamento |
-| Buscar uma foto para cada reservatório na internet para uso no frontend| Pedro       |    História 2                  | 2            | Baixa      | Em andamento |
 
+O **Sprint Backlog** abaixo mostra as histórias selecionadas para esta sprint.  
+
+| ID   | História / Tarefa                                | Prioridade | Pontos | Status        | Critérios de Aceite (Resumo) |
+|------|-------------------------------------------------|------------|--------|---------------|------------------------------|
+| US01 | Prototipação no Figma                            | Alta       | 5      | Em andamento  | Protótipo aprovado pelo professor |
+| US02 | Identidade visual e responsividade               | Alta       | 3      | A fazer       | Interface clara e responsiva |
+| US03 | Estrutura inicial do Front-End (React + TS)     | Alta       | 3      | A fazer       | Projeto roda em localhost sem erros |
+| US04 | Tabela interativa + filtros                      | Alta       | 8      | A fazer       | Dados exibidos corretamente; filtros funcionando |
+| US08 | Usabilidade e performance                        | Alta       | 5      | A fazer       | Carregamento rápido; navegação intuitiva |
+| US09 | Informação sobre os dados (seção + tooltips)    | Média      | 3      | A fazer       | Usuário entende origem e significado dos dados |
+| US10 | Estrutura inicial do Back-End (Node.js + TS)    | Alta       | 3      | A fazer       | Servidor sobe com endpoint /health sem erros |
+| US11 | Endpoints Read de Entidades                      | Alta       | 8      | A fazer       | Endpoints GET funcionando; dados inconsistentes tratados |
+| US13 | Endpoint séries temporais                        | Alta       | 5      | A fazer       | JSON retornado corretamente; front-end não trava |
 
 
 ### 🔍 Sprint Review
@@ -93,36 +111,26 @@ Estruturar a base do projeto e iniciar a configuração do ambiente de desenvolv
 - Entrega:
 
 ### 🎲 Planning Poker  
-| **História**                                                                                         | **Complexidade (pontos)** |
-|------------------------------------------------------------------------------------------------------|----------------------------|
-| Montar protótipo da tela inicial da aplicação no Figma                                               | 3                          |
-| Escrever o protótipo da tela inicial em React                                                        | 5                          |
-| Criar o primeiro protótipo do componente de menu principal                                           | 5                          |
-| Escrever o protótipo do menu principal em React                                                      | 5                          |
-| Criar o primeiro protótipo do componente de tabela interativa                                        | 5                          |
-| Implementar filtros por instituição, reservatório e período                                          | 3                          |
-| Conectar tabela a dados mockados inicialmente (JSON fake)                                            | 3                          |
-| Definir paleta de cores e tipografia alinhada ao INPE                                                | 2                          |
-| Validar design com a equipe                                                                          | 2                          |
-| Buscar uma foto para cada reservatório na internet para uso no frontend                              | 2                          |
-| Configurar o projeto Node.js + TS com Express                                                        | 3                          |
-| Configurar scripts dev, build, start no package.json                                                 | 2                          |
-| Criar estrutura MVC (controllers, services, routes, middlewares)                                     | 5                          |
-| Implementar middleware de erros e logs básicos                                                       | 3                          |
-| Criar endpoint /health para checagem inicial                                                         | 2                          |
-| Criar rotas para metade das tabelas existentes (getAll, getById) – por Nicolas                       | 5                          |
-| Criar rotas para metade das tabelas existentes (getAll, getById) – por Ryan                          | 5                          |
-| Criar o primeiro banco a partir dos scripts disponibilizados, testar consultas etc.                  | 5                          |
-| Hospedar o banco na Render para facilitar uso nesse primeiro momento                                 | 3                          |
-| Testar as rotas                                                                                      | 3                          |
-| Documentar a API conforme desenvolvimento                                                            | 3                          |
+## 🚀 Sprint Backlog – Sprint Atual (Resumo de Complexidade)
+
+| ID   | História / Tarefa                                | Complexidade (Pontos) |
+|------|-------------------------------------------------|----------------------|
+| US01 | Prototipação no Figma                            | 5                    |
+| US02 | Identidade visual e responsividade               | 3                    |
+| US03 | Estrutura inicial do Front-End (React + TS)     | 3                    |
+| US04 | Tabela interativa + filtros                      | 8                    |
+| US08 | Usabilidade e performance                        | 5                    |
+| US09 | Informação sobre os dados (seção + tooltips)    | 3                    |
+| US10 | Estrutura inicial do Back-End (Node.js + TS)    | 3                    |
+| US11 | Endpoints Read de Entidades                      | 8                    |
+| US13 | Endpoint séries temporais                        | 5                    |
+
 
 
 #### Complexidade total da Sprint: Alta
-#### Quantidade de histórias planejadas: 74
+#### Quantidade de histórias planejadas: 9
+#### Total de pontos: 43
 
 ### 📉 Gráfico Burndown
 ![Burndown Sprint 1](/docs/sprint-1/burndown.png)  
 
-
-🔗 [Ver tabela completa no Google Drive](https://docs.google.com/spreadsheets/d/1xV5XsTNYcUqYg82jIZkPI16sL_MuuDdo58Gj28kZsmI/edit?usp=sharing)
