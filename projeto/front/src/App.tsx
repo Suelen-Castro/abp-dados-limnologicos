@@ -1,10 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import './index.css';
 import { ThemeProvider } from "styled-components";
 import theme from "./styles/theme";
 import GlobalStyle from "./styles/GlobalStyle";
 import SimaPage from "./pages/SimaPage";
-import BarraBrasil from "./components/BarraBrasil";
-import MenuBar from "./components/MenuBar";
+import BarraBrasil from "./components/commons/BarraBrasil";
+import MenuBar from "./components/commons/MenuBar";
+import BalcarPage from "./pages/BalcarPage";
+import FurnasPage from "./pages/FurnasPage";
+import InitialPage from "./pages/InitialPage"
 
 function App() {
   return (
@@ -16,7 +20,10 @@ function App() {
           <MenuBar />
           <div className="flex-1 w-full">
             <Routes>
+              <Route path="/" element={<InitialPage/>} />
               <Route path="/sima" element={<SimaPage />} />
+              <Route path="/balcar" element={<BalcarPage />} />
+              <Route path="/furnas" element={<FurnasPage />} />
             </Routes>
           </div>
         </Router>
