@@ -1,4 +1,4 @@
-import type { Sima } from "../types/sima";
+import type { Sima } from "../../types/sima";
 
 interface Props {
   data: Sima[];
