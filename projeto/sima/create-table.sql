@@ -17,8 +17,8 @@ CREATE TABLE tbsensor (
 );
 
 CREATE TABLE tbestacao (
-  idestacao CHAR(6) NOT NULL,
-  idhexadecimal CHAR(5) NULL,
+  idestacao VARCHAR(6) NOT NULL,
+  idhexadecimal VARCHAR(5) NULL,
   rotulo VARCHAR(50) NULL,
   lat FLOAT NULL,
   lng FLOAT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE tbcampotabela (
 
 CREATE TABLE tbsima (
   idsima SERIAL NOT NULL,
-  idestacao CHAR(6) NOT NULL,
+  idestacao VARCHAR(6) NOT NULL,
   datahora TIMESTAMP NOT NULL,
   regno INTEGER NULL,
   nofsamples INTEGER  NULL,
@@ -81,7 +81,7 @@ CREATE TABLE tbsima (
 
 CREATE TABLE tbsimaoffline (
   idsimaoffline SERIAL NOT NULL,
-  idestacao CHAR(6) NOT NULL,
+  idestacao VARCHAR(6) NOT NULL,
   datahora TIMESTAMP NULL,
   dirvt NUMERIC(5,2) NULL,
   intensvt NUMERIC(5,2) NULL,
