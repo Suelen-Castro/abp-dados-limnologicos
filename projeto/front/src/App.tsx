@@ -1,24 +1,23 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import theme from "./styles/theme";
-import GlobalStyle from "./styles/GlobalStyle";
 import SimaPage from "./pages/SimaPage";
+import Presentation from './pages/PresentationPage';
 import BarraBrasil from "./components/BarraBrasil";
 import MenuBar from "./components/MenuBar";
-import Presentation from './pages/PresentationPage';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
       <Router>
-        <div className="w-full min-h-screen flex flex-col">
+        <div>
           <BarraBrasil />
           <MenuBar />
-          <div className="flex-1 w-full">
+          <div>
             <Routes>
-              <Route path="/sima" element={<SimaPage />} />
               <Route path="/" element={<Presentation />} />
+             {/* <Route path="/introduction" element={<Introduction />} /> */}
+              <Route path="/sima" element={<SimaPage />} />
             </Routes>
           </div>
         </div>

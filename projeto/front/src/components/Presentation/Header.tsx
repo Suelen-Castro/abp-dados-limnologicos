@@ -4,36 +4,40 @@ const Header: React.FC = () => {
   return (
     <header
       style={{
-        width: '100%', // Cabeçalho ocupa toda a largura
-        backgroundColor: '#ffffff', // Fundo branco
-        padding: '20px 40px', // Espaçamento interno (vertical 45px, horizontal 60px)
-        boxShadow: '0 6px 12px rgba(0,0,0,0.15)', // Relevo / sombra
-        position: 'relative', // Para controle de z-index
-        zIndex: 2, // Cabeçalho acima de outros elementos
+        width: '100%',
+        backgroundColor: '#ffffff',
+        padding: '1rem 2rem', // usa rem em vez de px
+        boxShadow: '0 6px 12px rgba(0,0,0,0.15)',
+        position: 'relative',
+        zIndex: 2,
       }}
     >
       <div
         style={{
-          maxWidth: '1200px', // Largura máxima do conteúdo
-          margin: '0 auto', // Centraliza horizontalmente
-          display: 'flex', // Flexbox para alinhar título e menu
-          justifyContent: 'space-between', // Distribui espaço entre elementos
-          alignItems: 'center', // Alinha verticalmente
+          maxWidth: '1200px',
+          margin: '0 auto',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap', // permite quebrar em telas pequenas
+          gap: '1rem',
         }}
       >
         <h1
           style={{
-            fontSize: '30px',
+            fontSize: 'clamp(1.2rem, 4vw, 1.8rem)', // responsivo
             fontWeight: 600,
             color: '#1a1a1a',
+            margin: 0,
           }}
         >
           Labisa - INPE
         </h1>
+
         <div
           style={{
             backgroundColor: '#e0e0e0',
-            padding: '14px',
+            padding: '0.5rem',
             borderRadius: '8px',
             boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
           }}
@@ -43,14 +47,18 @@ const Header: React.FC = () => {
               backgroundColor: '#007BFF',
               color: 'white',
               border: 'none',
-              padding: '12px 18px',
+              padding: '0.7rem 1.2rem',
               borderRadius: '6px',
               cursor: 'pointer',
-              fontSize: '14px',
+              fontSize: 'clamp(0.8rem, 2vw, 1rem)', // botão adapta
               transition: 'background-color 0.2s ease',
             }}
-            onMouseOver={e => (e.currentTarget.style.backgroundColor = '#0056b3')}
-            onMouseOut={e => (e.currentTarget.style.backgroundColor = '#007BFF')}
+            onMouseOver={(e) =>
+              (e.currentTarget.style.backgroundColor = '#0056b3')
+            }
+            onMouseOut={(e) =>
+              (e.currentTarget.style.backgroundColor = '#007BFF')
+            }
           >
             Menu
           </button>
