@@ -62,7 +62,7 @@ services:
   server-app:
     build:
       context: ./server
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     container_name: server-app
     restart: always
     networks:
@@ -109,3 +109,4 @@ volumes:
 networks:
   abp-network:
     driver: bridge
+
