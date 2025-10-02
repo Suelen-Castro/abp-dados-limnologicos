@@ -75,6 +75,7 @@ services:
       - ./.env
     volumes:
       - ./server:/usr/src/app
+      - /usr/src/app/node_modules   # mantém dependências dentro do container
       - ./logs:/usr/src/app/logs
     command: npm run dev
     ports:
