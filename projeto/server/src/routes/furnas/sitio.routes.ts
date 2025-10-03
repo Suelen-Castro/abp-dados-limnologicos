@@ -7,4 +7,3 @@ router.get("/all", getAll);
 router.get("/:idsitio", getById);
 
 export default router;
-

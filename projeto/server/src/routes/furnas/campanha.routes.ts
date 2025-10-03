@@ -7,4 +7,3 @@ router.get("/all", getAll);
 router.get("/:idcampanha", getById);
 
 export default router;
-
