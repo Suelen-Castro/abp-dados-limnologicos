@@ -1,6 +1,6 @@
 
 import { Router } from "express";
-import { getAll, getById } from "../../controllers/balcar/fluxoInpe.routes";
+import { getAll, getById } from "../../controllers/balcar/fluxoInpe.controller";
 
 const router = Router();
 

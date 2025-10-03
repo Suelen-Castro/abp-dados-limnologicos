@@ -1,7 +1,7 @@
 
 import express from "express";
 import sima from "./sima.routes";
-import simaOffline from './simaoffline.routes'
+import simaOffline from './simaOffline.routes'
 import sensor from './sensor.routes';
 import estacao from './estacao.routes';
 import campotabela from './campoTabela.routes';
