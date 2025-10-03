@@ -68,5 +68,9 @@ router.use("/medida-campo-coluna", medidaCampoColuna);
 router.use("/medida-campo-superficie", medidaCSuperficie);
 router.use("/nutrientes-sedimento", nutrientesSedimento);
 router.use("/parametros-biologicos-fisicos-agua", parametrosBFAgua);
+router.use("/pfq", pfq);
+router.use("/tabela", tabela);
+router.use("/tc", tc);
+router.use("variaveis-fisicas-quimicas-da-agua", variaveisFQDaAgua);
 
 export default router;
