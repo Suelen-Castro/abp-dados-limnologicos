@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Request, Response } from "express";
 import { furnasPool } from "../../configs/db";
 import { logger } from "../../configs/logger";
@@ -8,7 +7,7 @@ const PAGE_SIZE = Number(process.env.PAGE_SIZE) || 10;
 // getAll
 export const getAll = async (req: Request, res: Response): Promise<void> => {
     try {
-        // Leitura padronizada de query params
+        // Padronizando leitura de query params
         const page = parseInt(req.query.page as string) || 1;
         const limit = parseInt(req.query.limit as string) || PAGE_SIZE;
         const offset = (page - 1) * limit;
@@ -46,7 +45,7 @@ export const getAll = async (req: Request, res: Response): Promise<void> => {
 
         res.status(500).json({
             success: false,
-            error: "Erro ao realizar operação.", // Mensagem padronizada
+            error: "Erro ao realizar operação.", 
         });
     }
 };
@@ -60,7 +59,7 @@ export const getById = async (req: Request, res: Response): Promise<void> => {
         if (isNaN(idInstituicao)) {
             res.status(400).json({
                 success: false,
-                error: `ID ${req.params.idinstituicao} inválido.`, // Mensagem padronizada
+                error: `ID ${req.params.idinstituicao} inválido.`, 
             });
             return;
         }
@@ -79,7 +78,7 @@ export const getById = async (req: Request, res: Response): Promise<void> => {
         if (result.rows.length === 0) {
             res.status(404).json({
                 success: false,
-                error: `Registro de instituição não encontrado.`, // Mensagem padronizada
+                error: `Registro de instituição não encontrado.`, 
             });
             return;
         }
@@ -96,58 +95,7 @@ export const getById = async (req: Request, res: Response): Promise<void> => {
 
         res.status(500).json({
             success: false,
-            error: "Erro ao realizar operação." // Mensagem padronizada
+            error: "Erro ao realizar operação."
         });
     }
 };
-=======
-import { Request, Response } from "express";
-import { furnasPool } from "../../configs/db";
-import { logger } from "../../configs/logger";
-
-const PAGE_SIZE = Number(process.env.PAGE_SIZE) || 10;
-
-export const getAll = async (req: Request, res: Response): Promise<void> => {
-  try {
-    const page = Number(req.query.page) || 1;
-    const limit = Number(req.query.limit) || PAGE_SIZE;
-    const offset = (page - 1) * limit;
-
-    // consulta com paginação
-    const result = await furnasPool.query(
-      `
-      SELECT 
-        idinstituicao,
-        nome
-      FROM tbinstituicao
-      ORDER BY nome
-      LIMIT $1 OFFSET $2
-      `,
-      [limit, offset],
-    );
-
-    // consulta total de registros
-    const countResult = await furnasPool.query("SELECT COUNT(*) FROM tbinstituicao");
-    const total = Number(countResult.rows[0].count);
-
-    res.status(200).json({
-      success: true,
-      page,
-      limit,
-      total,
-      totalPages: Math.ceil(total / limit),
-      data: result.rows,
-    });
-  } catch (error: any) {
-    logger.error("Erro ao consultar tbinstituicao", {
-      message: error.message,
-      stack: error.stack,
-    });
-
-    res.status(500).json({
-      success: false,
-      error: "Erro ao realizar a operação.",
-    });
-  }
-};
->>>>>>> 5494df092a3a68cb3749465d78683a7c59e8e092

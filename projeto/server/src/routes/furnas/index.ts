@@ -1,6 +1,5 @@
-<<<<<<< HEAD
 import express from "express";
-import abioticocoluna from "./abioticocoluna.routes"
+import abioticoColuna from './abioticocoluna.routes';
 import campanha from "./campanha.routes";
 import instituicao from "./instituicao.routes";
 import reservatorio from "./reservatorio.routes";
@@ -23,7 +22,7 @@ import horiba from './horiba.routes';
 
 const router = express.Router();
 
-router.use("/abioticocoluna", abioticocoluna);
+router.use("/abioticocoluna", abioticoColuna);
 router.use("/campanha", campanha);
 router.use("/instituicao", instituicao);
 router.use("/reservatorio", reservatorio);
@@ -40,26 +39,8 @@ router.use("/dupladessorcaoagua", duplaDA);
 router.use("/fluxobolhasinpe", fluxoBI);
 router.use("/fluxocarbono", fluxoCarbono);
 router.use("/fluxodifusivo", fluxoDifusivo); 
-router.use("/fluxodifusivoinpe", fluxoDInpe);
+router.use("/fluxodifusivoinpe", fluxoDInpe); 
 router.use("/gasesembolhas", gasesEB);
 router.use("/horiba", horiba);
 
 export default router;
-=======
-import express from "express";
-import abioticocoluna from "./abioticocoluna.routes";
-import campanha from "./campanha.routes";
-import instituicao from "./instituicao.routes";
-import reservatorio from "./reservatorio.routes";
-import sitio from "./sitio.routes";
-
-const router = express.Router();
-
-router.use("/abioticocoluna", abioticocoluna);
-router.use("/campanha", campanha);
-router.use("/instituicao", instituicao);
-router.use("/reservatorio", reservatorio);
-router.use("/sitio", sitio);
-
-export default router;
->>>>>>> 5494df092a3a68cb3749465d78683a7c59e8e092
