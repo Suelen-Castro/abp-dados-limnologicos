@@ -103,7 +103,7 @@ export const getById = async (req: Request, res: Response): Promise<void> => {
 
         res.status(200).json({success:true, data,});
 
-    }  catch(error:any){
+    }   catch(error:any){
         logger.error(`Erro ao buscar registro por ID na tabela campoportabela: ${req.params.idCampoPorTabela}`, {
             message: error.message, stack: error.stack});
         res.status(500).json({success: false, error:"Erro ao realizar operação.",});
