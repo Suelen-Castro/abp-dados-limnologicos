@@ -1,9 +1,13 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import tailwindcss from '@tailwindcss/vite'
 
 // Configuração para rodar dentro de container Docker
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    tailwindcss(), // plugin do Tailwind para Vite
+  ],
   server: {
     host: true, // permite acesso externo (ex: http://localhost:3002)
     port: 5173, // porta padrão Vite

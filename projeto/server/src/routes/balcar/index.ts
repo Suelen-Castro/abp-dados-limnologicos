@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import express from "express";
 import fluxoinpe from "./fluxoinpe.routes";
 import campanha from "./campanha.routes";
@@ -30,3 +31,13 @@ router.use("/reservatorio", reservatorio);
 router.use("/tabelacampo", tabelacampo);
 
 export default router;
+=======
+import express from "express";
+import fluxoinpe from "./fluxoinpe.routes";
+
+const router = express.Router();
+
+router.use("/fluxoinpe", fluxoinpe);
+
+export default router;
+>>>>>>> a7ddc47d2bd0e6e134ab37f37f4a7cfa5c81ba3d

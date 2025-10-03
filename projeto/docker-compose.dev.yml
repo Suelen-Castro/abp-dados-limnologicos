@@ -3,10 +3,12 @@ services:
     image: postgres:17-alpine
     container_name: postgres-furnas-campanha
     restart: always
+    env_file:
+      - ./.env
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: bdfurnas-campanha
+      POSTGRES_USER: ${DB_FURNAS_USER}
+      POSTGRES_PASSWORD: ${DB_FURNAS_PASSWORD}
+      POSTGRES_DB: ${DB_FURNAS_NAME}
     ports:
       - "5433:5432"
     volumes:
@@ -21,10 +23,12 @@ services:
     image: postgres:17-alpine
     container_name: postgres-sima
     restart: always
+    env_file:
+      - ./.env
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: bdsima
+      POSTGRES_USER: ${DB_SIMA_USER}
+      POSTGRES_PASSWORD: ${DB_SIMA_PASSWORD}
+      POSTGRES_DB: ${DB_SIMA_NAME}
     ports:
       - "5434:5432"
     volumes:
@@ -39,10 +43,12 @@ services:
     image: postgres:17-alpine
     container_name: postgres-balcar-campanha
     restart: always
+    env_file:
+      - ./.env
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: bdbalcar-campanha
+      POSTGRES_USER: ${DB_BALCAR_USER}
+      POSTGRES_PASSWORD: ${DB_BALCAR_PASSWORD}
+      POSTGRES_DB: ${DB_BALCAR_NAME}
     ports:
       - "5435:5432"
     volumes:
@@ -65,34 +71,11 @@ services:
       - postgres-furnas-campanha
       - postgres-sima
       - postgres-balcar-campanha
-    environment:
-      PORT: 3000
-      HOST_PORT: 3001
-
-      DB_FURNAS_HOST: postgres-furnas-campanha
-      DB_FURNAS_PORT: 5432
-      DB_FURNAS_USER: postgres
-      DB_FURNAS_PASSWORD: postgres
-      DB_FURNAS_NAME: bdfurnas-campanha
-
-      DB_SIMA_HOST: postgres-sima
-      DB_SIMA_PORT: 5432
-      DB_SIMA_USER: postgres
-      DB_SIMA_PASSWORD: postgres
-      DB_SIMA_NAME: bdsima
-
-      DB_BALCAR_HOST: postgres-balcar-campanha
-      DB_BALCAR_PORT: 5432
-      DB_BALCAR_USER: postgres
-      DB_BALCAR_PASSWORD: postgres
-      DB_BALCAR_NAME: bdbalcar-campanha
-
-      PAGE_SIZE: 20
-      LOG_LEVEL: debug
-      CORS_ORIGIN: http://localhost:3002
+    env_file:
+      - ./.env
     volumes:
       - ./server:/usr/src/app
-      - /usr/src/app/node_modules
+      - /usr/src/app/node_modules   # mantém dependências dentro do container
       - ./logs:/usr/src/app/logs
     command: npm run dev
     ports:
@@ -106,10 +89,11 @@ services:
     restart: always
     networks:
       - abp-network
+    env_file:
+      - ./.env
     depends_on:
       - server-app
     environment:
-      VITE_SERVER_PORT: 3001
       CHOKIDAR_USEPOLLING: "true"   # garante hot reload dentro do container
     volumes:
       - ./front:/usr/src/app        # código local
@@ -126,3 +110,4 @@ volumes:
 networks:
   abp-network:
     driver: bridge
+
