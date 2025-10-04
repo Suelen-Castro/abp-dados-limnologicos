@@ -2,63 +2,25 @@ import React from 'react';
 
 const Header: React.FC = () => {
   return (
-    <header
-      style={{
-        width: '100%',
-        backgroundColor: '#ffffff',
-        padding: '1rem 2rem', // usa rem em vez de px
-        boxShadow: '0 6px 12px rgba(0,0,0,0.15)',
-        position: 'relative',
-        zIndex: 2,
-      }}
-    >
-      <div
-        style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap', // permite quebrar em telas pequenas
-          gap: '1rem',
-        }}
-      >
-        <h1
-          style={{
-            fontSize: 'clamp(1.2rem, 4vw, 1.8rem)', // responsivo
-            fontWeight: 600,
-            color: '#1a1a1a',
-            margin: 0,
-          }}
-        >
+    <header className="w-full bg-white p-4 shadow-md relative z-10">
+      <div className="max-w-screen-xl mx-auto flex justify-between items-center flex-wrap gap-4">
+        
+        {/* Logo */}
+        <img
+          src="/cabecalho/inpe.png" // Substitua pelo caminho correto da imagem
+          alt="Logo"
+          className="w-[100px] h-[100px] object-contain"
+        />
+
+        {/* Título */}
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-900 m-0">
           Labisa - INPE
         </h1>
 
-        <div
-          style={{
-            backgroundColor: '#e0e0e0',
-            padding: '0.5rem',
-            borderRadius: '8px',
-            boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
-          }}
-        >
+        {/* Menu Button */}
+        <div className="bg-gray-200 p-2 rounded-lg shadow-md">
           <button
-            style={{
-              backgroundColor: '#007BFF',
-              color: 'white',
-              border: 'none',
-              padding: '0.7rem 1.2rem',
-              borderRadius: '6px',
-              cursor: 'pointer',
-              fontSize: 'clamp(0.8rem, 2vw, 1rem)', // botão adapta
-              transition: 'background-color 0.2s ease',
-            }}
-            onMouseOver={(e) =>
-              (e.currentTarget.style.backgroundColor = '#0056b3')
-            }
-            onMouseOut={(e) =>
-              (e.currentTarget.style.backgroundColor = '#007BFF')
-            }
+            className="bg-blue-600 text-white py-2 px-4 rounded-md text-sm sm:text-base font-medium transition-colors duration-200 hover:bg-blue-700"
           >
             Menu
           </button>
